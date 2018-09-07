@@ -62,7 +62,6 @@ class Lyrics extends Component {
             <li className="list-group-item">
               <strong>Release Date</strong>: <Moment format="YYYY-DD-MM">{song.first_release_date}</Moment>
             </li>
-            <li className="list-group-item"></li>
           </ul>
         </React.Fragment>
       )
