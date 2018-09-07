@@ -49,10 +49,10 @@ class Lyrics extends Component {
               {song.track_name} / <span className="text-dark">{song.artist_name}</span>
             </h5>
             <div className="card-body">
-              <p className="card-text">{lyrics.lyrics_body}</p>
+              <pre className="card-text">{lyrics.lyrics_body}</pre>
             </div>
           </div>
-          <ul className="list-group mt-3">
+          <ul className="list-group mt-3 mb-5">
             <li className="list-group-item">
               <strong>Song Genre</strong>: {song.primary_genres.music_genre_list[0].music_genre.music_genre_name}
             </li>
