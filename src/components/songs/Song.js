@@ -6,7 +6,7 @@ const Song = (props) => {
 
 	return (
 		<div className="col-md-6">
-			<div className="card shadow-sm">
+			<div className="card mb-3 shadow-sm">
 				<div className="card-body">
 					<h5>{song.artist_name}</h5>
 					<p className="card-text">
