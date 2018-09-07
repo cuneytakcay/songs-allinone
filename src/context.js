@@ -19,7 +19,7 @@ const reducer = (state, action) => {
 export class Provider extends Component {
 	state = {
 		songList: [],
-		heading: 'List of Songs', 
+		heading: 'Top 10', 
 		dispatch: action => this.setState(state => reducer(state, action)),
 	}
 

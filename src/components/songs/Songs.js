@@ -16,7 +16,7 @@ class Songs extends Component {
           } else {
             return (
               <React.Fragment>
-                <h3 className="text-center">{heading}</h3>
+                <h2 className="text-center mb-4">{heading}</h2>
                 <div className="row">
                   {songList.map(item => (
                     <Song key={item.track.track_id} song={item.track} />

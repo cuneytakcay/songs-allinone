@@ -43,10 +43,10 @@ class Lyrics extends Component {
     } else {
       return (
         <React.Fragment>
-          <Link to="/" className="btn btn-dark btn-sm mb-4 mt-4">Go back</Link>
+          <Link to="/" className="btn btn-dark btn-sm mb-4 mt-2">Go back</Link>
           <div className="card">
             <h5 className="card-header">
-              {song.track_name} by <span className="text-dark">{song.artist_name}</span>
+              {song.track_name} / <span className="text-dark">{song.artist_name}</span>
             </h5>
             <div className="card-body">
               <p className="card-text">{lyrics.lyrics_body}</p>
@@ -60,7 +60,7 @@ class Lyrics extends Component {
               <strong>Explicit Words</strong>: {song.explicit === 0 ? 'No' : 'Yes'}
             </li>
             <li className="list-group-item">
-              <strong>Release Date</strong>: <Moment format="YYYY-DD-MM">{song.first_release_date}</Moment>
+              <strong>Release Date</strong>: <Moment format="YYYY">{song.first_release_date}</Moment>
             </li>
           </ul>
         </React.Fragment>
