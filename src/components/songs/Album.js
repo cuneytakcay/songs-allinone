@@ -21,9 +21,15 @@ class Album extends Component {
 
 	render() {
 		if (this.state.imageURL && this.state.imageURL.image[3]['#text'] !== '') {
-			return (<img src={this.state.imageURL.image[3]['#text']} alt={this.state.album} className="w-100" />)
+			return (
+				<Link to="/album">
+					<img src={this.state.imageURL.image[3]['#text']} alt={this.state.album} className="w-100" />
+				</Link>
+			)
 		} else {
-			return (<img src={noimage} alt={this.state.album} className="w-100" />)
+			return (
+				<img src={noimage} alt={this.state.album} className="w-100" />
+			)
 		}
 	}
 }
