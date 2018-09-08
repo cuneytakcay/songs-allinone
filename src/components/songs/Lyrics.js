@@ -54,7 +54,10 @@ class Lyrics extends Component {
           </div>
           <ul className="list-group mt-3 mb-5">
             <li className="list-group-item">
-              <strong>Song Genre</strong>: {song.primary_genres.music_genre_list[0].music_genre.music_genre_name}
+              <strong>Song Genre</strong>: {
+                song.primary_genres.music_genre_list.length !== 0 ?
+                  (song.primary_genres.music_genre_list[0].music_genre.music_genre_name) : (<span>Not available</span>) 
+              }
             </li>
             <li className="list-group-item">
               <strong>Explicit Words</strong>: {song.explicit === 0 ? 'No' : 'Yes'}
