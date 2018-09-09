@@ -48,7 +48,7 @@ class AlbumInfo extends Component {
               }          
             </div>
           </div>
-          <div className="card mt-3">
+          <div className="card mt-3 mb-4">
             <h5 className="card-header">Track List</h5>
             <div className='card-body'>
               {
@@ -64,6 +64,7 @@ class AlbumInfo extends Component {
               }
             </div>
           </div>
+          <Link to="/" className="btn btn-dark btn-sm mb-5">Go back</Link>
         </React.Fragment>
       )
     }

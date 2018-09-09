@@ -52,7 +52,7 @@ class Lyrics extends Component {
               <pre className="card-text">{lyrics.lyrics_body}</pre>
             </div>
           </div>
-          <ul className="list-group mt-3 mb-5">
+          <ul className="list-group mt-3 mb-4">
             <li className="list-group-item">
               <strong>Song Genre</strong>: {
                 song.primary_genres.music_genre_list.length !== 0 ?
@@ -66,6 +66,7 @@ class Lyrics extends Component {
               <strong>Release Date</strong>: <Moment format="YYYY">{song.first_release_date}</Moment>
             </li>
           </ul>
+          <Link to="/" className="btn btn-dark btn-sm mb-5">Go back</Link>
         </React.Fragment>
       )
     }
