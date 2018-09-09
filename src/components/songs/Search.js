@@ -19,7 +19,8 @@ class Search extends Component {
   findSong = (dispatch, e) => {
     e.preventDefault()
 
-    axios.get(`https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=${this.state.songTitle}&page_size=10&page=1&s_track_rating=desc&apikey=${process.env.REACT_APP_MUSIXMATCH_KEY}`)
+    axios.get(`https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=${this.state.songTitle}
+      &page_size=10&page=1&s_track_rating=desc&apikey=${process.env.REACT_APP_MUSIXMATCH_KEY}`)
       .then(res => {
         dispatch({
           type: 'SEARCH_SONGS',

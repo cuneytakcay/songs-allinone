@@ -12,7 +12,8 @@ class Album extends Component {
 	}
 
 	componentDidMount() {
-		axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.REACT_APP_LAST_FM_KEY}&artist=${this.state.artist}&album=${this.state.album}&format=json`)
+		axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.REACT_APP_LAST_FM_KEY}
+			&artist=${this.state.artist}&album=${this.state.album}&format=json`)
 			.then(res => {
 				this.setState({ imageURL: res.data.album })	
 			})
