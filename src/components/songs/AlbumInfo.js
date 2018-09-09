@@ -48,6 +48,22 @@ class AlbumInfo extends Component {
               }          
             </div>
           </div>
+          <div className="card mt-3">
+            <h5 className="card-header">Track List</h5>
+            <div className='card-body'>
+              {
+                (albumInfo.tracks.track.length > 0) ? (
+                  <ol>
+                    {albumInfo.tracks.track.map(item => (
+                      <li>{item.name}</li>
+                    ))}
+                  </ol>
+                ) : (
+                  <p>No tracks listed</p>
+                )
+              }
+            </div>
+          </div>
         </React.Fragment>
       )
     }
