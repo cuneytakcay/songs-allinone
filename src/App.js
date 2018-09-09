@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { Provider } from './context'
 import Navbar from './components/layout/Navbar'
-import Lyrics from './components/songs/Lyrics'
-import AlbumInfo from './components/songs/AlbumInfo'
+import Lyrics from './pages/Lyrics'
+import AlbumInfo from './pages/AlbumInfo'
 import Home from './pages/Home'
 
 import './App.css'

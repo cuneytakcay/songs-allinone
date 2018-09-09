@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-import noimage from './no-cover-art.png'
+import noimage from '../img/no-cover-art.png'
 
 class Album extends Component {
 	state = {

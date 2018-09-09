@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
 
-import Spinner from '../layout/Spinner'
+import Spinner from '../components/layout/Spinner'
 
 class Lyrics extends Component {
   state = {
