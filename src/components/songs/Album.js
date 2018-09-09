@@ -22,7 +22,7 @@ class Album extends Component {
 	render() {
 		if (this.state.imageURL && this.state.imageURL.image[3]['#text'] !== '') {
 			return (
-				<Link to="/album">
+				<Link to={`/album/${this.state.artist}/${this.state.album}`}>
 					<img src={this.state.imageURL.image[3]['#text']} alt={this.state.album} className="w-100" />
 				</Link>
 			)
