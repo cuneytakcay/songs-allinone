@@ -14,7 +14,9 @@ const Song = (props) => {
 						<Album artist={song.artist_name} album={song.album_name} />
 					</div>
 					<div className="col-lg-6 pt-2">
-						<h5>{song.artist_name}</h5>
+						<Link to={`/artist/${song.artist_name}`}>
+							<h5>{song.artist_name}</h5>
+						</Link>
 						<p className="card-text">
 							<i className="fas fa-play text-primary"></i> <strong>Song</strong>: {song.track_name}
 							<br />
@@ -23,7 +25,7 @@ const Song = (props) => {
 					</div>
 				</div>
 				<div className="pl-3 pr-3 pb-3">
-					<Link to={`lyrics/song/${song.track_id}`} className="btn btn-dark btn-block">
+					<Link to={`/lyrics/song/${song.track_id}`} className="btn btn-dark btn-block">
 						<i className="fas fa-chevron-right text-primary"></i> View Lyrics
 					</Link>
 				</div>

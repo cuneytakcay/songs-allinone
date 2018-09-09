@@ -11,8 +11,8 @@ class ArtistInfo extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${this.props.match.params.artist}
-      &api_key=${process.env.REACT_APP_LAST_FM_KEY}&format=json`)
+    axios.get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo
+      &artist=${this.props.match.params.artist}&api_key=${process.env.REACT_APP_LAST_FM_KEY}&format=json`)
       .then(res => {
         this.setState({
           artistInfo: res.data.artist
@@ -37,7 +37,7 @@ class ArtistInfo extends Component {
               {
                 (artistInfo.bio) ? (
                   <div>
-                    <p>{artistInfo.bio.content.slice(0, 500)}...</p>
+                    <p>{artistInfo.bio.content.slice(0, 1000)}...</p>
                     Read more on <a href={artistInfo.url} target="_blank"> Last.fm</a><br /> 
                     <small>Published on <Moment format="MM-DD-YYYY">{artistInfo.bio.published}</Moment></small>
                   </div>
@@ -50,10 +50,10 @@ class ArtistInfo extends Component {
           <ul className="list-group mt-3 mb-4">
             <li className="list-group-item">
               <strong>Similar Artists</strong>: {
-                artistInfo.similar !== 0 ?
-                  {artistInfo.similar.map(item => (
-                    <span>{artistInfo.similar.artist.name}, </span>
-                  ))} : (<span>Not available</span>) 
+                artistInfo.similar.artist !== 0 ?
+                  artistInfo.similar.artist.map(item => (
+                    <span key={item.name}>{item.name}, </span>
+                  )) : (<span>Not available</span>) 
               }
             </li>
           </ul>
