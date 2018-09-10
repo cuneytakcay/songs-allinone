@@ -3,8 +3,6 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
 
-import Spinner from '../components/layout/Spinner'
-
 class ArtistInfo extends Component {
   state = {
     artistInfo: {}
@@ -26,7 +24,12 @@ class ArtistInfo extends Component {
     const { artistInfo } = this.state
 
     if (artistInfo === undefined || Object.keys(artistInfo).length === 0) {
-      return <Spinner />
+      return (
+        <React.Fragment>
+          <h4 className="text-dark">Sorry, couldn't find the artist.</h4>
+          <Link to="/" className="btn btn-dark btn-sm mb-4 mt-2">Go back</Link>
+        </React.Fragment>
+      )
     } else {
       return (
         <React.Fragment>
@@ -34,14 +37,14 @@ class ArtistInfo extends Component {
           <div className="card">
             <h5 className="card-header">{artistInfo.name}</h5>
             <div className="card-body row">
-              <div className="col-md-5">
+              <div className="col-md-4">
                 <img src={artistInfo.image[3]['#text']} alt={artistInfo.name} className="w-100 mb-3" />
               </div>
-              <div className="col-md-7">
+              <div className="col-md-8">
                 {
                   (artistInfo.bio) ? (
                     <div>
-                      <p>{artistInfo.bio.content.slice(0, 1000)}...</p>
+                      <p>{artistInfo.bio.content.slice(0, 750)}...</p>
                       Read more on <a href={artistInfo.url} target="_blank"> Last.fm</a><br /> 
                       <small>Published on <Moment format="MM-DD-YYYY">{artistInfo.bio.published}</Moment></small>
                     </div>

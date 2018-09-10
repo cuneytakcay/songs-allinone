@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 
-import Spinner from '../layout/Spinner'
 import { Consumer } from '../../context'
 
 class Search extends Component {

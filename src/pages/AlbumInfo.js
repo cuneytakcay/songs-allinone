@@ -35,18 +35,23 @@ class AlbumInfo extends Component {
             <h5 className="card-header">
               {albumInfo.name} / <span className="text-dark">{albumInfo.artist}</span>
             </h5>
-            <div className="card-body">
-              {
-                (albumInfo.wiki) ? (
-                  <div>
-                    <p>{albumInfo.wiki.content.slice(0, 500)}...</p>
-                    Read more on <a href={albumInfo.url} target="_blank"> Last.fm</a><br /> 
-                    <small>Published on <Moment format="MM-DD-YYYY">{albumInfo.wiki.published}</Moment></small>
-                  </div>
-                ) : (
-                  <p>No wiki has been published about this album on <a href={`${albumInfo.url}/+wiki`} target="_blank"> Last.fm</a> yet.</p>
-                )
-              }          
+            <div className="card-body row">
+              <div className="col-md-4">
+                <img src={albumInfo.image[3]['#text']} alt={albumInfo.name} className="w-100 mb-3" />
+              </div>
+              <div className="col-md-8">
+                {
+                  (albumInfo.wiki) ? (
+                    <div>
+                      <p>{albumInfo.wiki.content.slice(0, 500)}...</p>
+                      Read more on <a href={albumInfo.url} target="_blank"> Last.fm</a><br /> 
+                      <small>Published on <Moment format="MM-DD-YYYY">{albumInfo.wiki.published}</Moment></small>
+                    </div>
+                  ) : (
+                    <p>No wiki has been published about this album on <a href={`${albumInfo.url}/+wiki`} target="_blank"> Last.fm</a> yet.</p>
+                  )
+                }
+              </div>          
             </div>
           </div>
           <div className="card mt-3 mb-4">
@@ -56,7 +61,7 @@ class AlbumInfo extends Component {
                 (albumInfo.tracks.track.length > 0) ? (
                   <ol>
                     {albumInfo.tracks.track.map(item => (
-                      <li>{item.name}</li>
+                      <li key={item.name}>{item.name}</li>
                     ))}
                   </ol>
                 ) : (
