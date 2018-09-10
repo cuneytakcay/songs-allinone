@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import Songs from '../components/songs/Songs'
-import Search from '../components/songs/Search'
+import Songs from '../components/songs/Songs';
+import Search from '../components/songs/Search';
 
 const Home = () => {
   return (
@@ -9,7 +9,7 @@ const Home = () => {
   		<Search />
   		<Songs />
   	</React.Fragment>
-  )
+  );
 }
 
-export default Home
+export default Home;
