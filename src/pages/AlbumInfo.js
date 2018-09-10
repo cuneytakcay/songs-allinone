@@ -1,32 +1,31 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { Link } from 'react-router-dom'
-import Moment from 'react-moment'
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 
-import Spinner from '../components/layout/Spinner'
+import Spinner from '../components/layout/Spinner';
+
+const rootURL = `http://ws.audioscrobbler.com/2.0/`;
+const key = process.env.REACT_APP_LAST_FM_KEY;
 
 class AlbumInfo extends Component {
   state = {
     albumInfo: {}
-  }
+  };
 
   componentDidMount() {
-    axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.REACT_APP_LAST_FM_KEY}
-      &artist=${this.props.match.params.artist}&album=${this.props.match.params.album}&format=json`)
+    axios.get(`${rootURL}?method=album.getinfo&api_key=${key}&artist=${this.props.match.params.artist}&album=${this.props.match.params.album}&format=json`)
       .then(res => {
-        this.setState({
-          albumInfo: res.data.album
-        })
-        console.log(this.state.albumInfo)
+        this.setState({ albumInfo: res.data.album });
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 
   render() {
-    const { albumInfo } = this.state
+    const { albumInfo } = this.state;
 
     if (albumInfo === undefined || Object.keys(albumInfo).length === 0) {
-      return <Spinner />
+      return (<Spinner />);
     } else {
       return (
         <React.Fragment>
@@ -49,7 +48,7 @@ class AlbumInfo extends Component {
                     </div>
                   ) : (
                     <p>No wiki has been published about this album on <a href={`${albumInfo.url}/+wiki`} target="_blank"> Last.fm</a> yet.</p>
-                  )
+                  );
                 }
               </div>          
             </div>
@@ -66,15 +65,15 @@ class AlbumInfo extends Component {
                   </ol>
                 ) : (
                   <p>No tracks listed</p>
-                )
+                );
               }
             </div>
           </div>
           <Link to="/" className="btn btn-dark btn-sm mb-5">Go back</Link>
         </React.Fragment>
-      )
+      );
     }
   }
 }
 
-export default AlbumInfo
+export default AlbumInfo;
