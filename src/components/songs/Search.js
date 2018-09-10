@@ -1,39 +1,39 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from 'react';
+import axios from 'axios';
 
-import { Consumer } from '../../context'
+import { Consumer } from '../../context';
+
+const rootURL = `http://ws.audioscrobbler.com/2.0/`;
+const key = process.env.REACT_APP_LAST_FM_KEY;
 
 class Search extends Component {
   state = {
     songTitle: '',
-  }
+  };
 
   onChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   findSong = (dispatch, e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    axios.get(`https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=${this.state.songTitle}
-      &page_size=10&page=1&s_track_rating=desc&apikey=${process.env.REACT_APP_MUSIXMATCH_KEY}`)
+    axios.get(`${rootURL}?method=track.search&track=${this.state.songTitle}&limit=10&apikey=${key}`)
       .then(res => {
         dispatch({
           type: 'SEARCH_SONGS',
-          payload: res.data.message.body.track_list,
-        })
-        this.setState({ songTitle: '' })
+          payload: res.data.tracks,
+        });
+        this.setState({ songTitle: '' });
       })
-      .catch(err => console.log(err))
-  }
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
       <Consumer>
         {value => {
-          const { dispatch } = value
+          const { dispatch } = value;
 
           return (
             <div className="card card-body mb-4 p-4">
@@ -55,11 +55,11 @@ class Search extends Component {
                 <button className="btn btn-primary btn-block btn-lg mb-5" type="submit">Find Song</button>
               </form>
             </div>
-          )
+          );
         }}
       </Consumer>
-    )
+    );
   }
 }
 
-export default Search
+export default Search;
