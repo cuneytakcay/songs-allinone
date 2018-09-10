@@ -6,7 +6,7 @@ import Navbar from './components/layout/Navbar'
 import Lyrics from './pages/Lyrics'
 import AlbumInfo from './pages/AlbumInfo'
 import ArtistInfo from './pages/ArtistInfo'
-import Home from './pages/Home'
+import Home from './components/layout/Home'
 
 import './App.css'
 

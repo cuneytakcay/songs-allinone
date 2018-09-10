@@ -1,15 +1,15 @@
 import React from 'react';
 
-import Songs from '../components/songs/Songs';
-import Search from '../components/songs/Search';
+import Artists from '../artists/Artists';
+import Search from './Search';
 
 const Home = () => {
   return (
   	<React.Fragment>
   		<Search />
-  		<Songs />
+  		<Artists />
   	</React.Fragment>
   );
-}
+};
 
 export default Home;

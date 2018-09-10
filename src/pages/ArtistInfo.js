@@ -49,7 +49,7 @@ class ArtistInfo extends Component {
                     </div>
                   ) : (
                     <p>No bio has been published about this album on <a href={`${artistInfo.url}/+bio`} target="_blank"> Last.fm</a> yet.</p>
-                  );
+                  )
                 }
               </div>          
             </div>
@@ -60,7 +60,7 @@ class ArtistInfo extends Component {
                 artistInfo.similar.artist !== 0 ?
                   artistInfo.similar.artist.map(item => (
                     <span key={item.name}>{item.name}, </span>
-                  )) : (<span>Not available</span>);
+                  )) : (<span>Not available</span>)
               }
             </li>
           </ul>

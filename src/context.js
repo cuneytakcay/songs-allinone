@@ -8,7 +8,7 @@ const reducer = (state, action) => {
 		case 'SEARCH_SONGS':
 			return {
 				...state,
-				tracks: action.payload,
+				results: action.payload,
 				heading: 'Search Results',
 			};
 		default:
@@ -21,15 +21,15 @@ const key = process.env.REACT_APP_LAST_FM_KEY;
 
 export class Provider extends Component {
 	state = {
-		tracks: [],
-		heading: 'Top 10 Songs', 
+		results: [],
+		heading: 'Top 10 Artists on Last.fm', 
 		dispatch: action => this.setState(state => reducer(state, action)),
 	};
 
 	componentDidMount() {
-		axios.get(`${rootURL}?method=chart.gettoptracks&limit=5&api_key=${key}&format=json`)
+		axios.get(`${rootURL}?method=chart.gettopartists&limit=10&api_key=${key}&format=json`)
 			.then(res => {
-				this.setState({ tracks: res.data.tracks })
+				this.setState({ results: res.data.artists.artist });
 			})
 			.catch(err => console.log(err));
 	}

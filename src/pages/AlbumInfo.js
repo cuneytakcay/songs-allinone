@@ -48,7 +48,7 @@ class AlbumInfo extends Component {
                     </div>
                   ) : (
                     <p>No wiki has been published about this album on <a href={`${albumInfo.url}/+wiki`} target="_blank"> Last.fm</a> yet.</p>
-                  );
+                  )
                 }
               </div>          
             </div>
@@ -65,7 +65,7 @@ class AlbumInfo extends Component {
                   </ol>
                 ) : (
                   <p>No tracks listed</p>
-                );
+                )
               }
             </div>
           </div>

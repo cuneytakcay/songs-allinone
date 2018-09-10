@@ -2,24 +2,24 @@ import React, { Component } from 'react';
 
 import { Consumer } from '../../context';
 import Spinner from '../layout/Spinner';
-import Song from './Song';
+import Artist from './Artist';
 
-class Songs extends Component {
+class Artists extends Component {
   render() {
     return (
     	<Consumer>
     		{value => {
-    			const { tracks, heading } = value;
+    			const { results, heading } = value;
     			
-          if (tracks === undefined || tracks.track.length === 0) {
+          if (results === undefined || results.length === 0) {
             return <Spinner />
           } else {
             return (
               <React.Fragment>
                 <h2 className="text-center mb-4">{heading}</h2>
                 <div className="row">
-                  {tracks.map(item => (
-                    <Song key={item.track.name} track={item.track} />
+                  {results.map(item => (
+                    <Artist key={item.mbid} item={item} />
                   ))}
                 </div>
               </React.Fragment>
@@ -31,4 +31,4 @@ class Songs extends Component {
   }
 }
 
-export default Songs;
+export default Artists;
