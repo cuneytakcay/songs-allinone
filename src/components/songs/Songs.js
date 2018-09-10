@@ -1,25 +1,25 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import { Consumer } from '../../context'
-import Spinner from '../layout/Spinner'
-import Song from './Song'
+import { Consumer } from '../../context';
+import Spinner from '../layout/Spinner';
+import Song from './Song';
 
 class Songs extends Component {
   render() {
     return (
     	<Consumer>
     		{value => {
-    			const { songList, heading } = value
+    			const { tracks, heading } = value;
     			
-          if (songList === undefined || songList.length === 0) {
+          if (tracks === undefined || tracks.track.length === 0) {
             return <Spinner />
           } else {
             return (
               <React.Fragment>
                 <h2 className="text-center mb-4">{heading}</h2>
                 <div className="row">
-                  {songList.map(item => (
-                    <Song key={item.track.track_id} song={item.track} />
+                  {tracks.map(item => (
+                    <Song key={item.track.name} song={item.track} />
                   ))}
                 </div>
               </React.Fragment>
@@ -27,8 +27,8 @@ class Songs extends Component {
           }
     		}}
     	</Consumer>
-    )
+    );
   }
 }
 
-export default Songs
+export default Songs;
