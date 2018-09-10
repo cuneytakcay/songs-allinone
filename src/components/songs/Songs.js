@@ -19,7 +19,7 @@ class Songs extends Component {
                 <h2 className="text-center mb-4">{heading}</h2>
                 <div className="row">
                   {tracks.map(item => (
-                    <Song key={item.track.name} song={item.track} />
+                    <Song key={item.track.name} track={item.track} />
                   ))}
                 </div>
               </React.Fragment>
