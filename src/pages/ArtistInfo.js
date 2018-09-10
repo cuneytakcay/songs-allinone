@@ -33,18 +33,23 @@ class ArtistInfo extends Component {
           <Link to="/" className="btn btn-dark btn-sm mb-4 mt-2">Go back</Link>
           <div className="card">
             <h5 className="card-header">{artistInfo.name}</h5>
-            <div className="card-body">
-              {
-                (artistInfo.bio) ? (
-                  <div>
-                    <p>{artistInfo.bio.content.slice(0, 1000)}...</p>
-                    Read more on <a href={artistInfo.url} target="_blank"> Last.fm</a><br /> 
-                    <small>Published on <Moment format="MM-DD-YYYY">{artistInfo.bio.published}</Moment></small>
-                  </div>
-                ) : (
-                  <p>No bio has been published about this album on <a href={`${artistInfo.url}/+bio`} target="_blank"> Last.fm</a> yet.</p>
-                )
-              }          
+            <div className="card-body row">
+              <div className="col-md-5">
+                <img src={artistInfo.image[3]['#text']} alt={artistInfo.name} className="w-100 mb-3" />
+              </div>
+              <div className="col-md-7">
+                {
+                  (artistInfo.bio) ? (
+                    <div>
+                      <p>{artistInfo.bio.content.slice(0, 1000)}...</p>
+                      Read more on <a href={artistInfo.url} target="_blank"> Last.fm</a><br /> 
+                      <small>Published on <Moment format="MM-DD-YYYY">{artistInfo.bio.published}</Moment></small>
+                    </div>
+                  ) : (
+                    <p>No bio has been published about this album on <a href={`${artistInfo.url}/+bio`} target="_blank"> Last.fm</a> yet.</p>
+                  )
+                }
+              </div>          
             </div>
           </div>
           <ul className="list-group mt-3 mb-4">
