@@ -13,7 +13,7 @@ class Lyrics extends Component {
   state = {
     track: {},
     lyrics: {},
-  }
+  };
 
   componentDidMount() {
     axios.get(`${cors}${rootURL}track.lyrics.get?track_id=${this.props.match.params.id}&apikey=${key}`)

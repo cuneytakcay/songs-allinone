@@ -1,23 +1,22 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { Link } from 'react-router-dom'
-import Moment from 'react-moment'
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
+
+const rootURL = `http://ws.audioscrobbler.com/2.0/`;
+const key = process.env.REACT_APP_LAST_FM_KEY;
 
 class ArtistInfo extends Component {
   state = {
     artistInfo: {}
-  }
+  };
 
   componentDidMount() {
-    axios.get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo
-      &artist=${this.props.match.params.artist}&api_key=${process.env.REACT_APP_LAST_FM_KEY}&format=json`)
+    axios.get(`${rootURL}?method=artist.getinfo&artist=${this.props.match.params.artist}&api_key=${key}&format=json`)
       .then(res => {
-        this.setState({
-          artistInfo: res.data.artist
-        })
-        console.log(this.state.artistInfo)
+        this.setState({ artistInfo: res.data.artist })
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -29,7 +28,7 @@ class ArtistInfo extends Component {
           <h4 className="text-dark">Sorry, couldn't find the artist.</h4>
           <Link to="/" className="btn btn-dark btn-sm mb-4 mt-2">Go back</Link>
         </React.Fragment>
-      )
+      );
     } else {
       return (
         <React.Fragment>
@@ -50,7 +49,7 @@ class ArtistInfo extends Component {
                     </div>
                   ) : (
                     <p>No bio has been published about this album on <a href={`${artistInfo.url}/+bio`} target="_blank"> Last.fm</a> yet.</p>
-                  )
+                  );
                 }
               </div>          
             </div>
@@ -61,15 +60,15 @@ class ArtistInfo extends Component {
                 artistInfo.similar.artist !== 0 ?
                   artistInfo.similar.artist.map(item => (
                     <span key={item.name}>{item.name}, </span>
-                  )) : (<span>Not available</span>) 
+                  )) : (<span>Not available</span>);
               }
             </li>
           </ul>
           <Link to="/" className="btn btn-dark btn-sm mb-5">Go back</Link>
         </React.Fragment>
-      )
+      );
     }
   }
 }
 
-export default ArtistInfo
+export default ArtistInfo;
