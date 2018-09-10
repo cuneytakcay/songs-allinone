@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Navbar = () => {
 	return (
@@ -7,7 +7,7 @@ const Navbar = () => {
 				<a className="navbar-brand" href="/">Music AIO</a>
 			</div>
 		</nav>
-	)
+	);
 }
 
-export default Navbar
+export default Navbar;
