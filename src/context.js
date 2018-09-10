@@ -1,38 +1,37 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from 'react';
+import axios from 'axios';
 
-const Context = React.createContext()
+const Context = React.createContext();
 
 const reducer = (state, action) => {
 	switch(action.type) {
 		case 'SEARCH_SONGS':
 			return {
 				...state,
-				songList: action.payload,
+				tracks: action.payload,
 				heading: 'Search Results',
-			}
+			};
 		default:
-			return state
+			return state;
 	}
-}
+};
+
+const rootURL = `http://ws.audioscrobbler.com/2.0/`;
+const key = process.env.REACT_APP_LAST_FM_KEY;
 
 export class Provider extends Component {
 	state = {
-		songList: [],
-		heading: 'Top 10', 
+		tracks: [],
+		heading: 'Top 10 Songs', 
 		dispatch: action => this.setState(state => reducer(state, action)),
-	}
+	};
 
 	componentDidMount() {
-		axios.get(`https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/chart.tracks.get?page=1
-			&page_size=10&country=us&f_has_lyrics=1&apikey=${process.env.REACT_APP_MUSIXMATCH_KEY}`)
+		axios.get(`${rootURL}?method=chart.gettoptracks&limit=5&api_key=${key}&format=json`)
 			.then(res => {
-				//console.log(res.data)
-				this.setState({
-					songList: res.data.message.body.track_list
-				})
+				this.setState({ tracks: res.data.tracks })
 			})
-			.catch(err => console.log(err))
+			.catch(err => console.log(err));
 	}
 
   render() {
@@ -40,7 +39,7 @@ export class Provider extends Component {
     	<Context.Provider value={this.state}>
     		{this.props.children}
     	</Context.Provider>
-    )
+    );
   }
 }
 
