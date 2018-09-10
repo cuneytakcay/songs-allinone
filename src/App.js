@@ -5,7 +5,7 @@ import { Provider } from './context'
 import Navbar from './components/layout/Navbar'
 import Lyrics from './pages/Lyrics'
 import AlbumInfo from './pages/AlbumInfo'
-import ArtistInfo from './pages/ArtistInfo'
+import ArtistInfo from './components/artists/ArtistInfo'
 import Home from './components/layout/Home'
 
 import './App.css'
@@ -22,7 +22,7 @@ class App extends Component {
 			        	<Route exact path="/" component={Home} />
 			        	<Route exact path="/lyrics/song/:id" component={Lyrics} />
 			        	<Route exact path="/album/:artist/:album" component={AlbumInfo} />
-			        	<Route exact path="/artist/:artist" component={ArtistInfo} />
+			        	<Route exact path="/artist/:name" component={ArtistInfo} />
 			        </Switch>
 			      </div>
 		      </React.Fragment>
