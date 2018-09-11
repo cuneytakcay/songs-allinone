@@ -22,14 +22,14 @@ const key = process.env.REACT_APP_LAST_FM_KEY;
 export class Provider extends Component {
 	state = {
 		results: [],
-		heading: 'Top 10 Artists', 
+		heading: 'Top 10 Songs', 
 		dispatch: action => this.setState(state => reducer(state, action)),
 	};
 
 	componentDidMount() {
-		axios.get(`${rootURL}?method=chart.gettopartists&limit=10&api_key=${key}&format=json`)
+		axios.get(`${rootURL}?method=chart.gettoptracks&limit=10&api_key=${key}&format=json`)
 			.then(res => {
-				this.setState({ results: res.data.artists.artist });
+				this.setState({ results: res.data.tracks.track });
 			})
 			.catch(err => console.log(err));
 	}
