@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 
-import Spinner from '../components/layout/Spinner';
+import Spinner from '../layout/Spinner';
 
 const rootURL = `http://ws.audioscrobbler.com/2.0/`;
 const key = process.env.REACT_APP_LAST_FM_KEY;

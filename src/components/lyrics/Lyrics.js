@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 
-import Spinner from '../components/layout/Spinner';
+import Spinner from '../layout/Spinner';
 
 const cors = `https://cors-anywhere.herokuapp.com/`;
 const rootURL = `http://api.musixmatch.com/ws/1.1/`;
