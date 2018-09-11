@@ -56,12 +56,14 @@ class ArtistInfo extends Component {
               <strong>Similar Artists</strong>: {
                 artist.similar.artist !== 0 ?
                   artist.similar.artist.map(item => (
-                    <img 
-                      src={item.image[3]['#text']}
-                      alt={item.name}
-                      key={item.name}
-                      style={{ width: '75px', margin: '0 10px' }}
-                    />
+                    <Link to={`/artist/${item.name}`} onClick={this.componentDidMount}>
+                      <img 
+                        src={item.image[3]['#text']}
+                        alt={item.name}
+                        key={item.name}
+                        style={{ width: '75px', margin: '0 10px' }}
+                      />
+                    </Link>
                   )) : (<span>Not available</span>)
               }
             </li>
