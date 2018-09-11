@@ -22,7 +22,7 @@ const key = process.env.REACT_APP_LAST_FM_KEY;
 export class Provider extends Component {
 	state = {
 		results: [],
-		heading: 'Top 10 Artists on Last.fm', 
+		heading: 'Top 10 Artists', 
 		dispatch: action => this.setState(state => reducer(state, action)),
 	};
 
