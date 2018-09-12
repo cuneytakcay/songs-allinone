@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 const Track = (props) => {
 	const { item } = props;
-	
+
 	return (
 		<div className="col-md-6">
 			<div className="card mb-3 shadow-sm">
 				<div className="card-body row">
 					<div className="col-lg-6">
 						<Link to={`/album/${item.name}`}>
-							<img src='#' alt={item.name} className="w-100" />
+							<img src={item.image[3]['#text']} alt={item.name} className="w-100" />
 						</Link>
 					</div>
 					<div className="col-lg-6 pt-2">
