@@ -29,6 +29,12 @@ const Navbar = () => {
 			        <a className="nav-link" href={`/albums`}>Albums</a>
 			      </li>
 			    </ul>
+			    <form className="form-inline my-2 my-lg-0">
+			      <input className="form-control mr-sm-2" type="text" placeholder="Enter a song name" />
+			      <button className="btn btn-dark my-2 my-sm-0" type="submit">
+			      	<i className="fas fa-search"></i>
+			      </button>
+			    </form>
 			  </div>
 			</div>
 		</nav>
