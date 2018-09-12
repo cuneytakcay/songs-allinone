@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { Provider } from './context'
 import Navbar from './components/layout/Navbar'
-import Lyrics from './components/lyrics/Lyrics'
+import Lyrics from './components/tracks/Lyrics'
 import AlbumInfo from './components/albums/AlbumInfo'
 import ArtistInfo from './components/artists/ArtistInfo'
 import Home from './components/layout/Home'
