@@ -9,18 +9,20 @@ const Track = (props) => {
 			<div className="card mb-3 shadow-sm">
 				<div className="card-body row">
 					<div className="col-lg-6">
-						<Link to={`/album/${item.name}`}>
+						<Link to={`artist/${item.artist.mbid}`}>
 							<img src={item.image[3]['#text']} alt={item.name} className="w-100" />
 						</Link>
 					</div>
 					<div className="col-lg-6 pt-2">
-						<Link to={`/track/${item.name}`}>
-							<h5>{item.name}</h5>
+						<Link to={`artist/${item.artist.mbid}`}>
+							<h5>{item.artist.name}</h5>
 						</Link>
 						<p className="card-text">
-							<i className="fas fa-play text-primary"></i> <strong>Track</strong>: {item.name}
+							<i className="fas fa-play text-primary"></i>
+							<a href={item.url} target="_blank" className="text-dark"> &nbsp;{item.name}</a>
 							<br />
-							<i className="fas fa-compact-disc text-primary"></i> <strong>Album</strong>:  
+							<i className="fab fa-lastfm-square text-primary"></i>
+							<span> &nbsp;Played {item.playcount} times by {item.listeners} listeners.</span>
 						</p>
 					</div>
 				</div>
