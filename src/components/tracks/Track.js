@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Track = (props) => {
 	const { item } = props;
-
+	
 	return (
 		<div className="col-md-6">
 			<div className="card mb-3 shadow-sm">

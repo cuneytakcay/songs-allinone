@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Artists from '../artists/Artists';
+import Tracks from '../tracks/Tracks';
 import Search from './Search';
 
 const Home = () => {
   return (
   	<React.Fragment>
   		<Search />
-  		<Artists />
+  		<Tracks />
   	</React.Fragment>
   );
 };

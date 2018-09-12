@@ -19,7 +19,7 @@ class Tracks extends Component {
                 <h2 className="text-center mb-4">{heading}</h2>
                 <div className="row">
                   {results.map(item => (
-                    <Track key={`${item.name}-${item.artist.mbid}`} item={item} />
+                    <Track key={`${item.name.toLowerCase().replace(/\s/g, '')}-${item.artist.mbid}`} item={item} />
                   ))}
                 </div>
               </React.Fragment>
