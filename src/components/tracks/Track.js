@@ -15,14 +15,12 @@ const Track = (props) => {
 					</div>
 					<div className="col-lg-6 pt-2">
 						<Link to={`artist/${item.artist.name}`}>
-							<h5>{item.artist.name}</h5>
+							<h5><i className="fas fa-play text-primary"></i> &nbsp;{item.name}</h5>
 						</Link>
 						<p className="card-text">
-							<i className="fas fa-play text-primary"></i>
-							<a href={item.url} target="_blank" className="text-dark"> &nbsp;{item.name}</a>
-							<br />
-							<i className="fab fa-lastfm-square text-primary"></i>
-							<span> &nbsp;Played {item.playcount} times by {item.listeners} listeners.</span>
+							<a href={item.url} target="_blank" className="text-dark">
+								by <strong>{item.artist.name}</strong>
+							</a>
 						</p>
 					</div>
 				</div>

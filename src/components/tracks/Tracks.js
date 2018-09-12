@@ -9,16 +9,16 @@ class Tracks extends Component {
     return (
     	<Consumer>
     		{value => {
-    			const { results, heading } = value;
+    			const { topTracks, heading } = value;
     			
-          if (results === undefined || results.length === 0) {
+          if (topTracks === undefined || topTracks.length === 0) {
             return <Spinner />
           } else {
             return (
               <React.Fragment>
                 <h2 className="text-center mb-4">{heading}</h2>
                 <div className="row">
-                  {results.map(item => (
+                  {topTracks.map(item => (
                     <Track key={`${item.name.toLowerCase().replace(/\s/g, '')}-${item.artist.mbid}`} item={item} />
                   ))}
                 </div>

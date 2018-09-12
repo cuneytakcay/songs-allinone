@@ -9,16 +9,16 @@ class Artists extends Component {
     return (
     	<Consumer>
     		{value => {
-    			const { results, heading } = value;
+    			const { trackInfo, heading } = value;
     			
-          if (results === undefined || results.length === 0) {
+          if (trackInfo === undefined || trackInfo.length === 0) {
             return <Spinner />
           } else {
             return (
               <React.Fragment>
                 <h2 className="text-center mb-4">{heading}</h2>
                 <div className="row">
-                  {results.map(item => (
+                  {trackInfo.map(item => (
                     <Artist key={item.mbid} item={item} />
                   ))}
                 </div>
