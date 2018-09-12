@@ -9,12 +9,12 @@ const Track = (props) => {
 			<div className="card mb-3 shadow-sm">
 				<div className="card-body row">
 					<div className="col-lg-6">
-						<Link to={`artist/${item.artist.mbid}`}>
+						<Link to={`artist/${item.artist.name}`}>
 							<img src={item.image[3]['#text']} alt={item.name} className="w-100" />
 						</Link>
 					</div>
 					<div className="col-lg-6 pt-2">
-						<Link to={`artist/${item.artist.mbid}`}>
+						<Link to={`artist/${item.artist.name}`}>
 							<h5>{item.artist.name}</h5>
 						</Link>
 						<p className="card-text">

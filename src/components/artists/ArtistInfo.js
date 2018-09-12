@@ -29,7 +29,7 @@ class ArtistInfo extends Component {
     } else {
       return (
         <React.Fragment>
-          <Link to="/" className="btn btn-dark btn-sm mb-4 mt-2">Go back</Link>
+          <Link to="/" className="btn btn-dark btn-sm mb-4 mt-2">Top Artists</Link>
           <div className="card">
             <h5 className="card-header">{artist.name}</h5>
             <div className="card-body row">
@@ -41,7 +41,9 @@ class ArtistInfo extends Component {
                   (artist.bio) ? (
                     <div>
                       <p>{artist.bio.content.slice(0, 750)}...</p>
-                      Read more on <a href={artist.url} target="_blank"> Last.fm</a><br /> 
+                      Read more on <a href={artist.url} target="_blank"> Last.fm</a>&nbsp;
+                      <i className="fab fa-lastfm-square text-primary"></i>
+                      <br /> 
                       <small>Published on <Moment format="MM-DD-YYYY">{artist.bio.published}</Moment></small>
                     </div>
                   ) : (
@@ -68,7 +70,7 @@ class ArtistInfo extends Component {
               }
             </li>
           </ul>
-          <Link to="/" className="btn btn-dark btn-sm mb-5">Go back</Link>
+          <Link to="/" className="btn btn-dark btn-sm mb-5">Top Artists</Link>
         </React.Fragment>
       );
     }
