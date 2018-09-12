@@ -4,7 +4,7 @@ const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
 			<div className="container">
-				<a className="navbar-brand" href="/">Music AIO</a>
+				<a className="navbar-brand text-dark" href="/">Music AIO</a>
 				<button 
 					className="navbar-toggler" 
 					type="button" 
