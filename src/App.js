@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { Provider } from './context'
 import Navbar from './components/layout/Navbar'
-import Lyrics from './components/tracks/Lyrics'
-import AlbumInfo from './components/albums/AlbumInfo'
+import Tracks from './components/tracks/Tracks'
+import Artists from './components/artists/Artists'
 import ArtistInfo from './components/artists/ArtistInfo'
 import Home from './components/layout/Home'
 
@@ -20,8 +20,8 @@ class App extends Component {
 			      <div className="container">
 			        <Switch>
 			        	<Route exact path="/" component={Home} />
-			        	<Route exact path="/lyrics/song/:id" component={Lyrics} />
-			        	<Route exact path="/album/:artist/:album" component={AlbumInfo} />
+			        	<Route exact path="/tracks" component={Tracks} />
+			        	<Route exact path="/artists" component={Artists} />
 			        	<Route exact path="/artist/:name" component={ArtistInfo} />
 			        </Switch>
 			      </div>

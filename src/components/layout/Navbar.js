@@ -20,7 +20,7 @@ const Navbar = () => {
 			  <div className="collapse navbar-collapse" id="toggle-items">
 			    <ul className="navbar-nav mr-auto">
 			      <li className="nav-item">
-			        <a className="nav-link" href={`/songs`}>Songs</a>
+			        <a className="nav-link" href={`/tracks`}>Songs</a>
 			      </li>
 			      <li className="nav-item">
 			        <a className="nav-link" href={`/artists`}>Artists</a>
