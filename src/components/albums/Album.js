@@ -1,40 +1,45 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 import noimage from '../img/no-cover-art.png';
 
-const rootURL = `http://ws.audioscrobbler.com/2.0/`;
-const key = process.env.REACT_APP_LAST_FM_KEY;
+const Album = (props) => {
+	const { item } = props;
 
-class Album extends Component {
-	state = {
-		artist: this.props.artist,
-		album: this.props.album,
-		imageURL: '',
-	};
-
-	componentDidMount() {
-		axios.get(`${rootURL}?method=album.getinfo&api_key=${key}&artist=${this.state.artist}&album=${this.state.album}&format=json`)
-			.then(res => {
-				this.setState({ imageURL: res.data.album })	;
-			})
-			.catch(err => console.log(err));
-	}
-
-	render() {
-		if (this.state.imageURL && this.state.imageURL.image[3]['#text'] !== '') {
-			return (
-				<Link to={`/album/${this.state.artist}/${this.state.album}`}>
-					<img src={this.state.imageURL.image[3]['#text']} alt={this.state.album} className="w-100" />
-				</Link>
-			);
-		} else {
-			return (
-				<img src={noimage} alt={this.state.album} className="w-100" />
-			);
-		}
-	}
-}
+	return (
+		<div className="col-md-6">
+			<div className="card mb-3 shadow-sm">
+				<div className="card-body row">
+					<div className="col-lg-6">
+						{
+							(item && item.image.length > 3) ? (
+								<Link to={`album/${item.artist}/${item.name}`}>
+									<img src={item.image[3]['#text']} alt={item.name} className="w-100" />
+								</Link>
+							) : (
+								<img src={noimage} alt="Album not available" className="w-100" />
+							)
+						}
+					</div>
+					<div className="col-lg-6 pt-2">
+						<Link to={`album/${item.artist}/${item.name}`}>
+							<h6><i className="fas fa-play text-primary"></i> &nbsp;{item.name.toUpperCase()}</h6>
+						</Link>
+						<p className="card-text">
+							<a href="#" target="_blank" className="text-dark">
+								by <strong>{item.artist}</strong>
+							</a>
+						</p>
+					</div>
+				</div>
+				<div className="pl-3 pr-3 pb-3">
+					<Link to={`album/${item.artist}/${item.name}`} className="btn btn-dark btn-block">
+						<i className="fas fa-chevron-right text-primary"></i> View Album Info
+					</Link>
+				</div>
+			</div>
+		</div>
+	);
+};
 
 export default Album;
