@@ -5,7 +5,7 @@ const Context = React.createContext();
 
 const reducer = (state, action) => {
 	switch(action.type) {
-		case 'SEARCH_SONGS':
+		case 'SEARCH_TRACKS':
 			return {
 				...state,
 				topTracks: action.payload,
@@ -24,7 +24,7 @@ export class Provider extends Component {
 	state = {
 		topTracks: [],
 		trackInfo: [],
-		heading: 'Top 10 Songs', 
+		heading: 'Top 10 Tracks', 
 		dispatch: action => this.setState(state => reducer(state, action)),
 	};
 

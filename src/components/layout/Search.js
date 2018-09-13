@@ -8,23 +8,23 @@ const key = process.env.REACT_APP_LAST_FM_KEY;
 
 class Search extends Component {
   state = {
-    songTitle: '',
+    trackTitle: '',
   };
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  findSong = (dispatch, e) => {
+  findTrack = (dispatch, e) => {
     e.preventDefault();
 
-    axios.get(`${rootURL}?method=track.search&track=${this.state.songTitle}&limit=10&apikey=${key}`)
+    axios.get(`${rootURL}?method=track.search&track=${this.state.trackTitle}&limit=10&apikey=${key}`)
       .then(res => {
         dispatch({
-          type: 'SEARCH_SONGS',
+          type: 'SEARCH_TRACKS',
           payload: res.data.tracks,
         });
-        this.setState({ songTitle: '' });
+        this.setState({ trackTitle: '' });
       })
       .catch(err => console.log(err));
   };
@@ -37,20 +37,20 @@ class Search extends Component {
 
           return (
             <div className="card card-body mb-4 p-4 shadow-sm">
-              <h1 className="text-center display-4 mb-3">Find a song</h1>
-              <form onSubmit={this.findSong.bind(this, dispatch)}>
+              <h1 className="text-center display-4 mb-3">Search for a track</h1>
+              <form onSubmit={this.findTrack.bind(this, dispatch)}>
                 <div className="form-group">
                   <input 
                     type="text"
                     className="form-control form-control-lg"
-                    placeholder="Enter a song name"
-                    name="songTitle"
-                    value={this.state.songTitle}
+                    placeholder="Enter a track name"
+                    name="trackTitle"
+                    value={this.state.trackTitle}
                     onChange={this.onChange}
                     required
                   />
                 </div>
-                <button className="btn btn-dark btn-block btn-lg mb-3" type="submit">Find Song</button>
+                <button className="btn btn-dark btn-block btn-lg mb-3" type="submit">Find Track</button>
               </form>
             </div>
           );

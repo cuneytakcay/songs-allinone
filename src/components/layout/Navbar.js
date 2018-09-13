@@ -21,7 +21,7 @@ const Navbar = () => {
 			  <div className="collapse navbar-collapse ml-3" id="toggle-items">
 			    <ul className="navbar-nav mr-auto">
 			      <li className="nav-item">
-			        <a className="nav-link" href={`/tracks`}>Songs</a>
+			        <a className="nav-link" href={`/tracks`}>Tracks</a>
 			      </li>
 			      <li className="nav-item">
 			        <a className="nav-link" href={`/artists`}>Artists</a>
@@ -31,7 +31,7 @@ const Navbar = () => {
 			      </li>
 			    </ul>
 			    <form className="form-inline my-2 my-lg-0">
-			      <input className="form-control mr-sm-2" type="text" placeholder="Enter a song name" />
+			      <input className="form-control mr-sm-2" type="text" placeholder="Enter a track name" />
 			      <button className="btn btn-dark my-2 my-sm-0" type="submit">
 			      	<i className="fas fa-search"></i>
 			      </button>

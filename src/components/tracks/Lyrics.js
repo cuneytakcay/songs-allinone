@@ -54,7 +54,7 @@ class Lyrics extends Component {
           </div>
           <ul className="list-group mt-3 mb-4">
             <li className="list-group-item">
-              <strong>Song Genre</strong>: {
+              <strong>Genre</strong>: {
                 track.primary_genres.music_genre_list.length !== 0 ?
                   (track.primary_genres.music_genre_list[0].music_genre.music_genre_name) : (<span>Not available</span>) 
               }
