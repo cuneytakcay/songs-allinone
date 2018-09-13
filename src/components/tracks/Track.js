@@ -23,7 +23,7 @@ const Track = (props) => {
 					</div>
 					<div className="col-lg-6 pt-2">
 							<h6>
-								<i className="fas fa-play text-primary" /> 
+								<i className="fas fa-play text-dark" /> 
 								<a href={item.url} target="_blank"> &nbsp;{item.name.toUpperCase()}</a>
 							</h6>
 						<p className="card-text">
