@@ -26,9 +26,21 @@ const Track = (props) => {
 							<h6><i className="fas fa-play text-primary"></i> &nbsp;{item.name.toUpperCase()}</h6>
 						</Link>
 						<p className="card-text">
+							by
 							<a href={item.url} target="_blank" className="text-dark">
-								by <strong>{item.artist.name}</strong>
+								<strong> {item.artist.name}</strong>
 							</a>
+						</p>
+						<p>
+							<i className="fas fa-compact-disc"></i>
+							<strong>Album: </strong>
+								{
+									(item.album) ? (
+										<a href={item.url} target="_blank" className="text-dark">{item.album.title}</a>
+									) : (
+										<span>Not available</span>
+									)
+								}
 						</p>
 					</div>
 				</div>
