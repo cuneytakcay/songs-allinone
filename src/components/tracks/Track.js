@@ -22,21 +22,22 @@ const Track = (props) => {
 						}
 					</div>
 					<div className="col-lg-6 pt-2">
-						<Link to={`artist/${item.artist.name}`}>
-							<h6><i className="fas fa-play text-primary"></i> &nbsp;{item.name.toUpperCase()}</h6>
-						</Link>
+							<h6>
+								<i className="fas fa-play text-primary" /> 
+								<a href={item.url} target="_blank"> &nbsp;{item.name.toUpperCase()}</a>
+							</h6>
 						<p className="card-text">
 							by
-							<a href={item.url} target="_blank" className="text-dark">
-								<strong> {item.artist.name}</strong>
-							</a>
+							<Link to={`artist/${item.artist.name}`}>
+								<strong className="text-dark"> {item.artist.name}</strong>
+							</Link>
 						</p>
 						<p>
-							<i className="fas fa-compact-disc"></i>
-							<strong>Album: </strong>
+							<i className="fas fa-compact-disc text-primary" />
+							<strong> Album: </strong>
 								{
 									(item.album) ? (
-										<a href={item.url} target="_blank" className="text-dark">{item.album.title}</a>
+										<Link to={`album/${item.artist.name}/${item.album.title}`}>{item.album.title}</Link>
 									) : (
 										<span>Not available</span>
 									)
@@ -46,7 +47,7 @@ const Track = (props) => {
 				</div>
 				<div className="pl-3 pr-3 pb-3">
 					<Link to={`#`} className="btn btn-dark btn-block">
-						<i className="fas fa-chevron-right text-primary"></i> View Lyrics
+						<i className="fas fa-chevron-right text-primary" /> View Lyrics
 					</Link>
 				</div>
 			</div>
