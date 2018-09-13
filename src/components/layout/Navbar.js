@@ -4,7 +4,8 @@ const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
 			<div className="container">
-				<a className="navbar-brand text-dark" href="/">Music AIO</a>
+				<i className="fas fa-music text-light" />
+				<a className="navbar-brand text-dark" href="/">&nbsp;Music AIO</a>
 				<button 
 					className="navbar-toggler" 
 					type="button" 
@@ -17,7 +18,7 @@ const Navbar = () => {
 			    <span className="navbar-toggler-icon"></span>
 			  </button>
 
-			  <div className="collapse navbar-collapse" id="toggle-items">
+			  <div className="collapse navbar-collapse ml-3" id="toggle-items">
 			    <ul className="navbar-nav mr-auto">
 			      <li className="nav-item">
 			        <a className="nav-link" href={`/tracks`}>Songs</a>
