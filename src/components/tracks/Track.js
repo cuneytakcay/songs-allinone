@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import noimage from '../img/no-cover-art.png';
+
 const Track = (props) => {
 	const { item } = props;
 
@@ -9,13 +11,19 @@ const Track = (props) => {
 			<div className="card mb-3 shadow-sm">
 				<div className="card-body row">
 					<div className="col-lg-6">
-						<Link to={`artist/${item.artist.name}`}>
-							<img src={item.image[3]['#text']} alt={item.name} className="w-100" />
-						</Link>
+						{
+							(item.album && item.album.image.length > 3) ? (
+								<Link to={`artist/${item.artist.name}`}>
+									<img src={item.album.image[3]['#text']} alt={item.name} className="w-100" />
+								</Link>
+							) : (
+								<img src={noimage} alt={item.name} className="w-100" />
+							)
+						}
 					</div>
 					<div className="col-lg-6 pt-2">
 						<Link to={`artist/${item.artist.name}`}>
-							<h5><i className="fas fa-play text-primary"></i> &nbsp;{item.name}</h5>
+							<h6><i className="fas fa-play text-primary"></i> &nbsp;{item.name.toUpperCase()}</h6>
 						</Link>
 						<p className="card-text">
 							<a href={item.url} target="_blank" className="text-dark">
