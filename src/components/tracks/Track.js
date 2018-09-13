@@ -13,11 +13,11 @@ const Track = (props) => {
 					<div className="col-lg-6">
 						{
 							(item.album && item.album.image.length > 3) ? (
-								<Link to={`artist/${item.artist.name}`}>
-									<img src={item.album.image[3]['#text']} alt={item.name} className="w-100" />
+								<Link to={`album/${item.artist.name}/${item.album.title}`}>
+									<img src={item.album.image[3]['#text']} alt={item.album.title} className="w-100" />
 								</Link>
 							) : (
-								<img src={noimage} alt={item.name} className="w-100" />
+								<img src={noimage} alt="Album not available" className="w-100" />
 							)
 						}
 					</div>

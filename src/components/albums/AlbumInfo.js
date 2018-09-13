@@ -14,7 +14,7 @@ class AlbumInfo extends Component {
   };
 
   componentDidMount() {
-    axios.get(`${rootURL}?method=album.getinfo&api_key=${key}&artist=${this.props.match.params.artist}&album=${this.props.match.params.album}&format=json`)
+    axios.get(`${rootURL}?method=album.getinfo&api_key=${key}&artist=${this.props.match.params.artist}&album=${this.props.match.params.title}&format=json`)
       .then(res => {
         this.setState({ albumInfo: res.data.album });
       })

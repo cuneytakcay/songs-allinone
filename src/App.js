@@ -7,6 +7,7 @@ import Tracks from './components/tracks/Tracks'
 import Artists from './components/artists/Artists'
 import ArtistInfo from './components/artists/ArtistInfo'
 import Home from './components/layout/Home'
+import AlbumInfo from './components/albums/AlbumInfo'
 
 import './App.css'
 
@@ -23,6 +24,7 @@ class App extends Component {
 			        	<Route exact path="/tracks" component={Tracks} />
 			        	<Route exact path="/artists" component={Artists} />
 			        	<Route exact path="/artist/:name" component={ArtistInfo} />
+			        	<Route exact path="/album/:artist/:title" component={AlbumInfo} />
 			        </Switch>
 			      </div>
 		      </React.Fragment>
