@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Provider } from './context'
-import Navbar from './components/layout/Navbar'
-import Home from './components/layout/Home'
-import Tracks from './components/tracks/Tracks'
-import Artists from './components/artists/Artists'
-import Genres from './components/genres/Genres'
-import ArtistInfo from './components/artists/ArtistInfo'
-import AlbumInfo from './components/albums/AlbumInfo'
+import { Provider } from './context';
+import Navbar from './components/layout/Navbar';
+import Home from './components/layout/Home';
+import Tracks from './components/tracks/Tracks';
+import Artists from './components/artists/Artists';
+import Genres from './components/genres/Genres';
+import ArtistInfo from './components/artists/ArtistInfo';
+import AlbumInfo from './components/albums/AlbumInfo';
 
-import './App.css'
+import './App.css';
 
 class App extends Component {
   render() {
@@ -32,8 +32,8 @@ class App extends Component {
 		      </React.Fragment>
 	      </Router>
       </Provider>
-    )
+    );
   }
 }
 
-export default App
+export default App;
