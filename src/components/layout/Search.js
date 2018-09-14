@@ -3,8 +3,7 @@ import axios from 'axios';
 
 import { Consumer } from '../../context';
 
-const cors = `https://cors-anywhere.herokuapp.com/`;
-const rootURL = `http://ws.audioscrobbler.com/2.0/`;
+const rootURL = `https://ws.audioscrobbler.com/2.0/`;
 const key = process.env.REACT_APP_LAST_FM_KEY;
 
 class Search extends Component {
@@ -19,7 +18,7 @@ class Search extends Component {
   findTrack = (dispatch, e) => {
     e.preventDefault();
 
-    axios.get(`${cors}${rootURL}?method=track.search&track=${this.state.trackTitle}&limit=10&apikey=${key}`)
+    axios.get(`${rootURL}?method=track.search&track=${this.state.trackTitle}&limit=10&apikey=${key}`)
       .then(res => {
         dispatch({
           type: 'SEARCH_TRACKS',
