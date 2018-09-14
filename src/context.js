@@ -16,6 +16,7 @@ const reducer = (state, action) => {
 	}
 };
 
+const cors = `https://cors-anywhere.herokuapp.com/`;
 const rootURL = `http://ws.audioscrobbler.com/2.0/`;
 const key = process.env.REACT_APP_LAST_FM_KEY;
 let tracks = [];
@@ -29,7 +30,7 @@ export class Provider extends Component {
 	};
 
 	componentDidMount() {
-		axios.get(`${rootURL}?method=chart.gettoptracks&limit=10&api_key=${key}&format=json`)
+		axios.get(`${cors}${rootURL}?method=chart.gettoptracks&limit=10&api_key=${key}&format=json`)
 			.then(res => {
 				this.setState({ topTracks: res.data.tracks.track });
 				this.state.topTracks.forEach(track => {

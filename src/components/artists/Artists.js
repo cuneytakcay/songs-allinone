@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Artist from './Artist';
 
+const cors = `https://cors-anywhere.herokuapp.com/`;
 const rootURL = `http://ws.audioscrobbler.com/2.0/`;
 const key = process.env.REACT_APP_LAST_FM_KEY;
 const topTracks = [];
@@ -14,7 +15,7 @@ class Artists extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${rootURL}?method=chart.gettopartists&limit=10&api_key=${key}&format=json`)
+    axios.get(`${cors}${rootURL}?method=chart.gettopartists&limit=10&api_key=${key}&format=json`)
       .then(res => {
         this.setState({ topArtists: res.data.artists.artist });
         this.state.topArtists.forEach(artist => {

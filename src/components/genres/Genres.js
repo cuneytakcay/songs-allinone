@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Genre from './Genre';
 
+const cors = `https://cors-anywhere.herokuapp.com/`;
 const rootURL = `http://ws.audioscrobbler.com/2.0/`;
 const key = process.env.REACT_APP_LAST_FM_KEY;
 
@@ -12,7 +13,7 @@ class Genres extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${rootURL}/?method=chart.gettoptags&api_key=${key}&format=json`)
+    axios.get(`${cors}${rootURL}/?method=chart.gettoptags&api_key=${key}&format=json`)
       .then(res => {
         this.setState({ topGenres: res.data.tags.tag });
         this.filterGenres();
