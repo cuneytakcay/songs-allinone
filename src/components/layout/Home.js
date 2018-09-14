@@ -7,7 +7,7 @@ const Home = () => {
   return (
   	<React.Fragment>
   		<Search />
-  		
+  		<Tracks />
   	</React.Fragment>
   );
 };
