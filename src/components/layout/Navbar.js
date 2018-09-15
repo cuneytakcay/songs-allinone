@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
 			<div className="container">
 				<i className="fas fa-music text-light" />
-				<Link className="navbar-brand text-dark" to="/">&nbsp;Music AIO</Link>
+				<NavLink className="navbar-brand text-dark" to="/">&nbsp;Music AIO</NavLink>
 				<button 
 					className="navbar-toggler" 
 					type="button" 
@@ -22,13 +22,13 @@ const Navbar = () => {
 			  <div className="collapse navbar-collapse ml-3" id="toggle-items">
 			    <ul className="navbar-nav mr-auto">
 			      <li className="nav-item">
-			        <Link className="nav-link" to={`/tracks`}>Tracks</Link>
+			        <NavLink className="nav-link" to={`/tracks`} activeStyle={{border: "1px solid white"}}>Tracks</NavLink>
 			      </li>
 			      <li className="nav-item">
-			        <Link className="nav-link" to={`/artists`}>Artists</Link>
+			        <NavLink className="nav-link" to={`/artists`} activeStyle={{border: "1px solid white"}}>Artists</NavLink>
 			      </li>
 			      <li className="nav-item">
-			        <Link className="nav-link" to={`/genres`}>Genres</Link>
+			        <NavLink className="nav-link" to={`/genres`} activeStyle={{border: "1px solid white"}}>Genres</NavLink>
 			      </li>
 			    </ul>
 			    <form className="form-inline my-2 my-lg-0">
