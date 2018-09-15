@@ -29,7 +29,7 @@ class ArtistInfo extends Component {
     } else {
       return (
         <React.Fragment>
-          <Link to="/" className="btn btn-dark btn-sm mb-4 mt-2">Top Artists</Link>
+          <Link to="/artists" className="btn btn-dark btn-sm mb-4 mt-2">Top 10 Artists</Link>
           <div className="card">
             <h5 className="card-header">{artist.name}</h5>
             <div className="card-body row">
@@ -70,7 +70,7 @@ class ArtistInfo extends Component {
               }
             </li>
           </ul>
-          <Link to="/" className="btn btn-dark btn-sm mb-5">Top Artists</Link>
+          <Link to="/artists" className="btn btn-dark btn-sm mb-5">Top 10 Artists</Link>
         </React.Fragment>
       );
     }

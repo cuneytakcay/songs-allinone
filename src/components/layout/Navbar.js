@@ -5,7 +5,7 @@ const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
 			<div className="container">
-				<i className="fas fa-music text-light" />
+				<i className="fas fa-drum text-light h2 mr-2" />
 				<NavLink className="navbar-brand text-dark" to="/">&nbsp;Music AIO</NavLink>
 				<button 
 					className="navbar-toggler" 

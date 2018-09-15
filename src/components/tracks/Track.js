@@ -12,7 +12,7 @@ const Track = (props) => {
 				<div className="card-body row">
 					<div className="col-lg-6">
 						{
-							(item.album && item.album.image.length > 3) ? (
+							(item.album && item.album.image.length > 3 && item.album.image[3]['#text'] !== '') ? (
 								<Link to={`album/${item.artist.name}/${item.album.title}`}>
 									<img src={item.album.image[3]['#text']} alt={item.album.title} className="w-100" />
 								</Link>
@@ -23,7 +23,7 @@ const Track = (props) => {
 					</div>
 					<div className="col-lg-6 pt-2">
 							<h6>
-								<i className="fas fa-play text-dark" /> 
+								<i className="fas fa-music text-dark" /> 
 								<a href={item.url} target="_blank"> &nbsp;{item.name.toUpperCase()}</a>
 							</h6>
 						<p className="card-text">

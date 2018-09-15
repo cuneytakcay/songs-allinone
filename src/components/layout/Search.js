@@ -37,7 +37,6 @@ class Search extends Component {
                 payload: this.state.trackInfo,
               });
               this.setState({ trackTitle: '' });
-              console.log(this.state.trackInfo)
             })
             .catch(err => console.log(err));
         });

@@ -29,7 +29,7 @@ class AlbumInfo extends Component {
     } else {
       return (
         <React.Fragment>
-          <Link to="/" className="btn btn-dark btn-sm mb-4 mt-2">Go back</Link>
+          <Link to="/tracks" className="btn btn-dark btn-sm mb-4 mt-2">Top 10 Tracks</Link>
           <div className="card">
             <h5 className="card-header">
               {albumInfo.name} / <span className="text-dark">{albumInfo.artist}</span>
@@ -69,7 +69,7 @@ class AlbumInfo extends Component {
               }
             </div>
           </div>
-          <Link to="/" className="btn btn-dark btn-sm mb-5">Go back</Link>
+          <Link to="/tracks" className="btn btn-dark btn-sm mb-5">Top 10 Tracks</Link>
         </React.Fragment>
       );
     }
