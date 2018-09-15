@@ -5,7 +5,7 @@ import Moment from 'react-moment';
 
 import Spinner from '../layout/Spinner';
 
-const rootURL = `http://ws.audioscrobbler.com/2.0/`;
+const rootURL = `https://ws.audioscrobbler.com/2.0/`;
 const key = process.env.REACT_APP_LAST_FM_KEY;
 
 class ArtistInfo extends Component {
