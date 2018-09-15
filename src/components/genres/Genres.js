@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Genre from './Genre';
+import Spinner from '../layout/Spinner';
 
 const rootURL = `https://ws.audioscrobbler.com/2.0/`;
 const key = process.env.REACT_APP_LAST_FM_KEY;
@@ -50,16 +51,22 @@ class Genres extends Component {
   }
 
   render() {
-    return (
-      <React.Fragment>
-        <h2 className="text-center mb-4">Top 10 Genres</h2>
-        <div className="row">
-          {this.state.topGenres.map(item => (
-            <Genre key={item.name} item={item} />
-          ))}
-        </div>
-      </React.Fragment>
-    );     
+    const { topGenres } = this.state;
+
+    if (topGenres === undefined || topGenres.length === 0) {
+      return <Spinner />
+    } else {
+      return (
+        <React.Fragment>
+          <h2 className="text-center mb-4">Top 10 Genres</h2>
+          <div className="row">
+            {topGenres.map(item => (
+              <Genre key={item.name} item={item} />
+            ))}
+          </div>
+        </React.Fragment>
+      );
+    }     
   }
 }
 

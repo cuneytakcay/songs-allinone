@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Artist from './Artist';
+import Spinner from '../layout/Spinner';
 
 const rootURL = `https://ws.audioscrobbler.com/2.0/`;
 const key = process.env.REACT_APP_LAST_FM_KEY;
@@ -30,16 +31,22 @@ class Artists extends Component {
   }
 
   render() {
-    return (
-      <React.Fragment>
-        <h2 className="text-center mb-4">Top 10 Artists</h2>
-        <div className="row">
-          {this.state.topTracks.map(item => (
-            <Artist key={item.track[0].artist.mbid} item={item} />
-          ))}
-        </div>
-      </React.Fragment>
-    );     
+    const { topTracks } = this.state;
+    
+    if (topTracks === undefined || topTracks.length === 0) {
+      return <Spinner />
+    } else {
+      return (
+        <React.Fragment>
+          <h2 className="text-center mb-4">Top 10 Artists</h2>
+          <div className="row">
+            {topTracks.map(item => (
+              <Artist key={item.track[0].artist.mbid} item={item} />
+            ))}
+          </div>
+        </React.Fragment>
+      ); 
+    }    
   }
 }
 
