@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
 			<div className="container">
 				<i className="fas fa-music text-light" />
-				<a className="navbar-brand text-dark" href="/">&nbsp;Music AIO</a>
+				<Link className="navbar-brand text-dark" to="/">&nbsp;Music AIO</Link>
 				<button 
 					className="navbar-toggler" 
 					type="button" 
@@ -21,13 +22,13 @@ const Navbar = () => {
 			  <div className="collapse navbar-collapse ml-3" id="toggle-items">
 			    <ul className="navbar-nav mr-auto">
 			      <li className="nav-item">
-			        <a className="nav-link" href={`/tracks`}>Tracks</a>
+			        <Link className="nav-link" to={`/tracks`}>Tracks</Link>
 			      </li>
 			      <li className="nav-item">
-			        <a className="nav-link" href={`/artists`}>Artists</a>
+			        <Link className="nav-link" to={`/artists`}>Artists</Link>
 			      </li>
 			      <li className="nav-item">
-			        <a className="nav-link" href={`/genres`}>Genres</a>
+			        <Link className="nav-link" to={`/genres`}>Genres</Link>
 			      </li>
 			    </ul>
 			    <form className="form-inline my-2 my-lg-0">
