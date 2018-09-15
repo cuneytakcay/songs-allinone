@@ -5,10 +5,13 @@ import { Consumer } from '../../context';
 
 const rootURL = `https://ws.audioscrobbler.com/2.0/`;
 const key = process.env.REACT_APP_LAST_FM_KEY;
+const tracks = [];
 
 class Search extends Component {
   state = {
     trackTitle: '',
+    searchedTracks: [],
+    trackInfo: [],
   };
 
   onChange = e => {
@@ -18,16 +21,31 @@ class Search extends Component {
   findTrack = (dispatch, e) => {
     e.preventDefault();
 
-    axios.get(`${rootURL}?method=track.search&track=${this.state.trackTitle}&limit=10&apikey=${key}`)
+    axios.get(`${rootURL}?method=track.search&track=${this.state.trackTitle}&api_key=${key}&format=json`)
       .then(res => {
+        this.setState({ searchedTracks: res.data.results.trackmatches.track });
+        this.state.searchedTracks.forEach(track => {
+          this.getTrackInfo(dispatch, track);
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
+  getTrackInfo = (dispatch, track) => {
+    axios.get(`${rootURL}?method=track.getInfo&api_key=${key}&artist=${track.artist}&track=${track.name}&format=json`)
+      .then(res => {
+        if (res.data.track !== undefined) {
+          tracks.push(res.data.track);
+        }
+        this.setState({ trackInfo: tracks });
         dispatch({
           type: 'SEARCH_TRACKS',
-          payload: res.data.tracks,
+          payload: this.state.trackInfo,
         });
         this.setState({ trackTitle: '' });
       })
       .catch(err => console.log(err));
-  };
+  }
 
   render() {
     return (
