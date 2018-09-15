@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 	return (
@@ -22,13 +22,13 @@ const Navbar = () => {
 			  <div className="collapse navbar-collapse ml-3" id="toggle-items">
 			    <ul className="navbar-nav mr-auto">
 			      <li className="nav-item">
-			        <NavLink className="nav-link" to={`/tracks`} activeStyle={{border: "1px solid white"}}>Tracks</NavLink>
+			        <NavLink className="nav-link rounded pl-2 m-1" to={`/tracks`} activeStyle={{border: "1px solid white"}}>Tracks</NavLink>
 			      </li>
 			      <li className="nav-item">
-			        <NavLink className="nav-link" to={`/artists`} activeStyle={{border: "1px solid white"}}>Artists</NavLink>
+			        <NavLink className="nav-link rounded pl-2 m-1" to={`/artists`} activeStyle={{border: "1px solid white"}}>Artists</NavLink>
 			      </li>
 			      <li className="nav-item">
-			        <NavLink className="nav-link" to={`/genres`} activeStyle={{border: "1px solid white"}}>Genres</NavLink>
+			        <NavLink className="nav-link rounded pl-2 m-1" to={`/genres`} activeStyle={{border: "1px solid white"}}>Genres</NavLink>
 			      </li>
 			    </ul>
 			    <form className="form-inline my-2 my-lg-0">
