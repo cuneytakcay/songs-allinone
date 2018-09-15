@@ -18,7 +18,6 @@ const reducer = (state, action) => {
 
 const rootURL = `https://ws.audioscrobbler.com/2.0/`;
 const key = process.env.REACT_APP_LAST_FM_KEY;
-let tracks = [];
 
 export class Provider extends Component {
 	state = {
@@ -29,22 +28,20 @@ export class Provider extends Component {
 	};
 
 	componentDidMount() {
+		const tracks = [];
+
 		axios.get(`${rootURL}?method=chart.gettoptracks&limit=10&api_key=${key}&format=json`)
 			.then(res => {
 				this.setState({ topTracks: res.data.tracks.track });
 				this.state.topTracks.forEach(track => {
-					this.getTrackInfo(track);
+					axios.get(`${rootURL}?method=track.getInfo&api_key=${key}&artist=${track.artist.name}&track=${track.name}&format=json`)
+						.then(res => {
+							tracks.push(res.data.track);
+							this.setState({ trackInfo: tracks });
+						});
 				});
 			})
 			.catch(err => console.log(err));
-	}
-
-	getTrackInfo = track => {
-		axios.get(`${rootURL}?method=track.getInfo&api_key=${key}&artist=${track.artist.name}&track=${track.name}&format=json`)
-			.then(res => {
-				tracks.push(res.data.track);
-				this.setState({ trackInfo: tracks });
-			});
 	}
 
   render() {
