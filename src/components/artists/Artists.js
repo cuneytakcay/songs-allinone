@@ -5,7 +5,6 @@ import Artist from './Artist';
 
 const rootURL = `https://ws.audioscrobbler.com/2.0/`;
 const key = process.env.REACT_APP_LAST_FM_KEY;
-const topTracks = [];
 
 class Artists extends Component {
   state = {
@@ -14,22 +13,20 @@ class Artists extends Component {
   }
 
   componentDidMount() {
+    const topTracks = [];
+
     axios.get(`${rootURL}?method=chart.gettopartists&limit=10&api_key=${key}&format=json`)
       .then(res => {
         this.setState({ topArtists: res.data.artists.artist });
         this.state.topArtists.forEach(artist => {
-          this.getTopTracks(artist.name);
+          axios.get(`${rootURL}?method=artist.gettoptracks&artist=${artist.name}&limit=3&api_key=${key}&format=json`)
+            .then(res => {
+              topTracks.push(res.data.toptracks);
+              this.setState({ topTracks: topTracks });
+            });
         });
       })
       .catch(err => console.log(err));
-  }
-
-  getTopTracks = artist => {
-    axios.get(`${rootURL}?method=artist.gettoptracks&artist=${artist}&limit=3&api_key=${key}&format=json`)
-      .then(res => {
-        topTracks.push(res.data.toptracks);
-        this.setState({ topTracks: topTracks });
-      });
   }
 
   render() {
