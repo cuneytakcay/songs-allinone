@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
+import nanoid from 'nanoid';
 
 import Spinner from '../layout/Spinner';
 
@@ -62,7 +63,7 @@ class ArtistInfo extends Component {
                       <img 
                         src={item.image[3]['#text']}
                         alt={item.name}
-                        key={item.name}
+                        key={nanoid()}
                         style={{ width: '75px', margin: '0 10px' }}
                       />
                     </Link>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import nanoid from 'nanoid';
 
 const Artist = (props) => {
 	const { item } = props;
@@ -19,7 +20,7 @@ const Artist = (props) => {
 						</Link>
 						<strong>Top tracks: </strong>
 						<ul>
-							{item.track.map(track => <li key={track.mbid || track.name}>{track.name}</li>)}
+							{item.track.map(track => <li key={nanoid()}>{track.name}</li>)}
 						</ul>
 					</div>
 				</div>

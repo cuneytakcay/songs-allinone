@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import nanoid from 'nanoid';
 
 import Genre from './Genre';
 import Spinner from '../layout/Spinner';
@@ -61,7 +62,7 @@ class Genres extends Component {
           <h2 className="text-center mb-4">Top 10 Genres</h2>
           <div className="row">
             {topGenres.map(item => (
-              <Genre key={item.name} item={item} />
+              <Genre key={nanoid()} item={item} />
             ))}
           </div>
         </React.Fragment>

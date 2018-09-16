@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import nanoid from 'nanoid';
 
 import Artist from './Artist';
 import Spinner from '../layout/Spinner';
@@ -41,7 +42,7 @@ class Artists extends Component {
           <h2 className="text-center mb-4">Top 10 Artists</h2>
           <div className="row">
             {topTracks.map(item => (
-              <Artist key={item.track[0].artist.mbid} item={item} />
+              <Artist key={nanoid()} item={item} />
             ))}
           </div>
         </React.Fragment>

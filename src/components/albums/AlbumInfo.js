@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
+import nanoid from 'nanoid';
 
 import Spinner from '../layout/Spinner';
 
@@ -60,7 +61,7 @@ class AlbumInfo extends Component {
                 (albumInfo.tracks.track.length > 0) ? (
                   <ol>
                     {albumInfo.tracks.track.map(item => (
-                      <li key={item.name}>{item.name}</li>
+                      <li key={nanoid()}>{item.name}</li>
                     ))}
                   </ol>
                 ) : (

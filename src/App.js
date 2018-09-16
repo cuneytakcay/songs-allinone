@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { Provider } from './context';
 import Navbar from './components/layout/Navbar';
-import Home from './components/layout/Home';
 import Tracks from './components/tracks/Tracks';
 import Artists from './components/artists/Artists';
 import Genres from './components/genres/Genres';
@@ -21,8 +20,7 @@ class App extends Component {
 			    	<Navbar />
 			      <div className="container">
 			        <Switch>
-			        	<Route exact path="/" component={Home} />
-			        	<Route exact path="/tracks" component={Tracks} />
+			        	<Route exact path="/" component={Tracks} />
 			        	<Route exact path="/artists" component={Artists} />
 			        	<Route exact path="/genres" component={Genres} />
 			        	<Route exact path="/artist/:name" component={ArtistInfo} />

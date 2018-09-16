@@ -50,24 +50,22 @@ class Search extends Component {
         {value => {
           const { dispatch } = value;
 
-          return (
-            <div className="card card-body mb-4 p-4 shadow-sm">
-              <h1 className="text-center display-4 mb-3">Search for a track</h1>
-              <form onSubmit={this.findTrack.bind(this, dispatch)}>
-                <div className="form-group">
-                  <input 
-                    type="text"
-                    className="form-control form-control-lg"
-                    placeholder="Enter a track name"
-                    name="trackTitle"
-                    value={this.state.trackTitle}
-                    onChange={this.onChange}
-                    required
-                  />
-                </div>
-                <button className="btn btn-dark btn-block btn-lg mb-3" type="submit">Find Track</button>
-              </form>
-            </div>
+          return (     
+            <form
+              className="form-inline my-2 my-lg-0"
+              onSubmit={this.findTrack.bind(this, dispatch)}
+            >
+              <input 
+                type="text"
+                placeholder="Enter a track name"
+                className="form-control mr-sm-2"
+                name="trackTitle"
+                value={this.state.trackTitle}
+                onChange={this.onChange}
+                required
+              />
+              <button className="btn btn-dark my-2 my-sm-0" type="submit">Find Track</button>
+            </form>
           );
         }}
       </Consumer>

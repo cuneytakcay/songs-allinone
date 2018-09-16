@@ -1,12 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import Form from './Form';
+
+
 const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
 			<div className="container">
-				<i className="fas fa-drum text-light h2 mr-2" />
-				<NavLink className="navbar-brand text-dark" to="/">&nbsp;Music AIO</NavLink>
+				<i className="fas fa-drum text-light h2" />
+				<h1 className="navbar-brand text-dark mt-2"><strong>&nbsp;Music AIO</strong></h1>
 				<button 
 					className="navbar-toggler" 
 					type="button" 
@@ -22,21 +25,16 @@ const Navbar = () => {
 			  <div className="collapse navbar-collapse ml-3" id="toggle-items">
 			    <ul className="navbar-nav mr-auto">
 			      <li className="nav-item">
-			        <NavLink className="nav-link rounded pl-2 m-1" to={`/tracks`} activeStyle={{border: "1px solid white"}}>Tracks</NavLink>
+			        <NavLink className="nav-link text-center" exact to={`/`} activeStyle={{borderBottom: "1px solid #fff"}}>Tracks</NavLink>
 			      </li>
 			      <li className="nav-item">
-			        <NavLink className="nav-link rounded pl-2 m-1" to={`/artists`} activeStyle={{border: "1px solid white"}}>Artists</NavLink>
+			        <NavLink className="nav-link text-center" to={`/artists`} activeStyle={{borderBottom: "1px solid #fff"}}>Artists</NavLink>
 			      </li>
 			      <li className="nav-item">
-			        <NavLink className="nav-link rounded pl-2 m-1" to={`/genres`} activeStyle={{border: "1px solid white"}}>Genres</NavLink>
+			        <NavLink className="nav-link text-center" to={`/genres`} activeStyle={{borderBottom: "1px solid #fff"}}>Genres</NavLink>
 			      </li>
 			    </ul>
-			    <form className="form-inline my-2 my-lg-0">
-			      <input className="form-control mr-sm-2" type="text" placeholder="Enter a track name" />
-			      <button className="btn btn-dark my-2 my-sm-0" type="submit">
-			      	<i className="fas fa-search"></i>
-			      </button>
-			    </form>
+			    <Form />
 			  </div>
 			</div>
 		</nav>
@@ -44,3 +42,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
