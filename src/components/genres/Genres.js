@@ -11,44 +11,42 @@ const key = process.env.REACT_APP_LAST_FM_KEY;
 class Genres extends Component {
   state = {
     topGenres: [],
+    genreArtists: [],
   }
 
   componentDidMount() {
-    axios.get(`${rootURL}/?method=chart.gettoptags&api_key=${key}&format=json`)
-      .then(res => {
-        this.setState({ topGenres: res.data.tags.tag });
-        this.filterGenres();
-        // this.state.topArtists.forEach(artist => {
-        //   this.getTopTracks(artist.name);
-        // });
-      })
-      .catch(err => console.log(err));
-  }
-
-  // getTopTracks = artist => {
-  //   axios.get(`${rootURL}?method=artist.gettoptracks&artist=${artist}&limit=3&api_key=${key}&format=json`)
-  //     .then(res => {
-  //       topTracks.push(res.data.toptracks);
-  //       this.setState({ topTracks: topTracks });
-  //     });
-  // }
-
-  filterGenres = () => {
-    let genres = [];
+    const genres = [];
+    const genreArtists = [];
     let last = 10;
 
-    for (let i = 0; i < last; i++) {
-      if (
-        this.state.topGenres[i].name.toLowerCase() === "seen live" ||
-        this.state.topGenres[i].name.toLowerCase() === "female vocalists"
-      ) {
-        last++;
-        continue;
-      }
-      genres.push(this.state.topGenres[i]);
-    }
-    
-    this.setState({ topGenres: genres });   
+    axios.get(`${rootURL}?method=chart.gettoptags&api_key=${key}&format=json`)
+      .then(res => {
+        this.setState({ topGenres: res.data.tags.tag });
+        for (let i = 0; i < last; i++) {
+          if (
+            this.state.topGenres[i].name.toLowerCase() === "seen live" ||
+            this.state.topGenres[i].name.toLowerCase() === "female vocalists"
+          ) {
+            last++;
+            continue;
+          }
+          genres.push(this.state.topGenres[i]);
+        }
+        this.setState({ topGenres: genres });
+        console.log(this.state.topGenres)
+        if (this.state.topGenres.length === 10) {
+          this.state.topGenres.forEach(genre => {
+            axios.get(`${rootURL}?method=tag.gettopartists&tag=${genre.name}&api_key=${key}&format=json`)
+              .then(res => {
+                this.setState({ genreArtists: res.data });
+                genreArtists.push(this.state.genreArtists);
+                this.setState({ genreArtists: genreArtists });
+                console.log(this.state.genreArtists)
+              });
+          });
+        }
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
