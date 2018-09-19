@@ -19,7 +19,9 @@ class Tracks extends Component {
               <React.Fragment>
                 <h2 className="text-center mb-4">{heading}</h2>
                 <div className="row">
-                  {trackInfo.map(item => (<Track key={nanoid()} item={item} />))}
+                  {trackInfo.map(item => (
+                    <Track key={nanoid()} item={item} />
+                  ))}
                 </div>
               </React.Fragment>
             )

@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import nanoid from 'nanoid';
 
-import Genre from './Genre';
+import GenreBody from './GenreBody';
+import GenreImage from './GenreImage';
+// import GenreArtists from './GenreArtists';
+// import GenreTracks from './GenreTracks';
+// import GenreAlbums from './GenreAlbums';
 import Spinner from '../layout/Spinner';
 
 const rootURL = `https://ws.audioscrobbler.com/2.0/`;
@@ -15,9 +19,8 @@ class Genres extends Component {
   }
 
   componentDidMount() {
-    const genres = [];
-    const genreArtists = [];
     let last = 10;
+    const genres = [];
 
     axios.get(`${rootURL}?method=chart.gettoptags&api_key=${key}&format=json`)
       .then(res => {
@@ -33,18 +36,13 @@ class Genres extends Component {
           genres.push(this.state.topGenres[i]);
         }
         this.setState({ topGenres: genres });
-        console.log(this.state.topGenres)
-        if (this.state.topGenres.length === 10) {
-          this.state.topGenres.forEach(genre => {
-            axios.get(`${rootURL}?method=tag.gettopartists&tag=${genre.name}&api_key=${key}&format=json`)
-              .then(res => {
-                this.setState({ genreArtists: res.data });
-                genreArtists.push(this.state.genreArtists);
-                this.setState({ genreArtists: genreArtists });
-                console.log(this.state.genreArtists)
-              });
-          });
-        }
+        console.log(genres)  
+        Promise.all(this.state.topGenres.map(genre => {
+          return axios.get(`${rootURL}?method=tag.gettopartists&tag=${genre.name}&api_key=${key}&format=json`)
+        })).then(genreArtists => {
+          this.setState({ genreArtists: genreArtists });
+          console.log(this.state.genreArtists);
+        }).catch(err => console.log(err));
       })
       .catch(err => console.log(err));
   }
@@ -59,8 +57,8 @@ class Genres extends Component {
         <React.Fragment>
           <h2 className="text-center mb-4">Top 10 Genres</h2>
           <div className="row">
-            {topGenres.map(item => (
-              <Genre key={nanoid()} item={item} />
+            {topGenres.map(genre => (
+              <GenreBody key={nanoid()} genre={genre} />
             ))}
           </div>
         </React.Fragment>
