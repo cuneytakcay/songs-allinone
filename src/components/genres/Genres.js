@@ -57,9 +57,11 @@ class Genres extends Component {
         <React.Fragment>
           <h2 className="text-center mb-4">Top 10 Genres</h2>
           <div className="row">
-            {topGenres.map(genre => (
-              <GenreBody key={nanoid()} genre={genre} />
-            ))}
+            <div className="col-md-12">
+              {topGenres.map(genre => (
+                <GenreBody key={nanoid()} genre={genre} />
+              ))}
+            </div>
           </div>
         </React.Fragment>
       );
